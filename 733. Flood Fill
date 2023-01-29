@@ -1,0 +1,26 @@
+ def coloring(self,image,sr,sc,color,src,flag):
+
+            if sr < 0 or sc < 0:
+                return 
+            if sr >= len(image) or sc >= len(image[0]):
+                return 
+            if flag[sr][sc]==1:
+                return image
+            flag[sr][sc]=1
+            if image[sr][sc] == src:
+                image[sr][sc] = color
+            else:
+                return image
+            self.coloring(image,sr+1,sc,color,src,flag)
+            self.coloring(image,sr,sc+1,color,src,flag)
+            self.coloring(image,sr-1,sc,color,src,flag)
+            self.coloring(image,sr,sc-1,color,src,flag)
+            return image
+        def floodFill(self, image: List[List[int]], sr: int, sc: int, color: int) -> List[List[int]]:
+
+            flag=[]
+            for i in range(len(image)):
+                a = [0]*len(image[0])
+                flag.append(a)
+            return self.coloring(image,sr,sc,color,image[sr][sc],flag)
+
