@@ -1,0 +1,15 @@
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        s=''
+        l1=len(word1)
+        l2=len(word2)
+        j=0
+        for i in word1:
+            if j>l2-1:
+                s+=i
+            else:
+                s+=i+word2[j]
+                j+=1
+        if l2>l1:
+            return s+word2[j:]
+        return s
