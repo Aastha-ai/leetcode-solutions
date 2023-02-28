@@ -1,0 +1,15 @@
+class Solution:
+    def diStringMatch(self, s: str) -> List[int]:
+        arr=[]
+        l=0
+        h=len(s)
+        for i in s:
+            if i=='D':
+                arr.append(h)
+                h-=1
+            else:
+                arr.append(l)
+                l+=1
+        arr.append(l)
+        return arr
+            
