@@ -1,0 +1,16 @@
+class Solution:
+    def maxDivScore(self, nums: List[int], divisors: List[int]) -> int:
+        m=0
+        ans=0
+        divisors.sort()
+        for j in divisors:
+            c=0
+            for i in nums:
+                if i%j==0:
+                    c+=1
+            if m<c:
+                m=c
+                ans=j
+        if ans==0:
+            return min(divisors)
+        return ans
